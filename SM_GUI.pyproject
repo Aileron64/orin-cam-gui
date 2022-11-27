@@ -3,26 +3,7 @@
     [
         "main.py", 
         "app.py",
-        "chatbot.py",
 
-        "MainWindow.qml",
-        "Pages/HomePage.qml",
-        "Pages/LoginPage.qml",
-        "Pages/ScanPage.qml",
-        "Pages/WeighPage.qml",
-        "ChatBox.qml",
-
-        "Components/SM_Page.qml",
-        "Components/SM_Button.qml",
-        "Components/SM_Frame.qml",
-        "Components/SM_RadioButton.qml",
-        "Components/SM_Text.qml",
-        "Components/SM_TextField.qml",
-        "Components/SM_PanelBackground.qml",
-
-        "Images/logo.png", 
-        "Images/background.jpg",
-        "Images/background.png",
-        "Images/troll.png"
+        "MainWindow.qml"
     ]
 }
