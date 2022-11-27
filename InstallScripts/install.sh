@@ -1,4 +1,4 @@
-# Dep
+# Dependencies
 
 sudo apt-get \
 build-dep \
