@@ -13,6 +13,16 @@ ApplicationWindow
     height: 1080
     visibility: "FullScreen"
 
+    Rectangle
+    {
+        anchors.fill: parent
+        gradient: Gradient
+        {
+            GradientStop { position: 1.0; color: "#25224d" }
+            GradientStop { position: 0.0; color: "#403a85" }
+        }
+    }
+
     Frame
     {
         id: mainPanel
@@ -24,15 +34,6 @@ ApplicationWindow
         anchors.horizontalCenter: parent.horizontalCenter
 
         background: SM_PanelBackground { }
-    }
-
-    Rectangle
-    {
-        id: popupBackdrop
-        visible: false
-        anchors.fill: parent
-        color: "#4f4f4f"
-        opacity: 1
     }
 
     Item
@@ -60,7 +61,7 @@ ApplicationWindow
         text: "Exit"
         visible: true
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
+        anchors.right: parent.right
         anchors.margins: 20
 
         onClicked: Qt.quit()
