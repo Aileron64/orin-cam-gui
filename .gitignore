@@ -1,5 +1,13 @@
 ﻿
 __pycache__
-InstallScripts/*
-!InstallScripts/install.sh
+InstallScripts/qtbase-everywhere-src-5.15.2
+InstallScripts/qtbase-everywhere-src-5.15.2.tar.xz
+
+InstallScripts/qtdeclarative-everywhere-src-5.15.2
+InstallScripts/qtdeclarative-everywhere-src-5.15.2.tar.xz
+
+InstallScripts/qtquickcontrols2-everywhere-src-5.15.2
+InstallScripts/qtquickcontrols2-everywhere-src-5.15.2.tar.xz
+
 testVideo.mp4
+.vscode/settings.json
