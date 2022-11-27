@@ -33,7 +33,7 @@ ApplicationWindow
         anchors.bottomMargin: parent.height * 0.1
         anchors.horizontalCenter: parent.horizontalCenter
 
-        background: SM_PanelBackground { }
+        background: oPanelBackground { }
     }
 
     Item
