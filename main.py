@@ -3,6 +3,7 @@ import sys
 from PySide2.QtWidgets import QApplication
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtQuickControls2 import QQuickStyle
+# from PySide2.QtMultimedia import QMultimedia
 
 from app import App
 
@@ -17,5 +18,5 @@ if __name__ == '__main__':
     app = App()
     ctx.setContextProperty("app", app)
     
-    win.showFullScreen()
+    #win.showFullScreen()
     sys.exit(main.exec_())

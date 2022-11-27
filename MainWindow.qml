@@ -11,7 +11,7 @@ ApplicationWindow
     id: mainWindow
     width: 1920
     height: 1080
-    visibility: "FullScreen"
+    //visibility: "FullScreen"
 
     Rectangle
     {
@@ -23,18 +23,7 @@ ApplicationWindow
         }
     }
 
-    Frame
-    {
-        id: mainPanel
-        visible: isLoggedIn
-        width: parent.width * 0.9
-        height: parent.height * 0.7
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: parent.height * 0.1
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        background: O_PanelBackground { }
-    }
+    HomePage { visible: true }
 
     Item
     {
@@ -58,8 +47,17 @@ ApplicationWindow
 
     Button
     {
+        text: "Profile/Settings"
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 20
+
+        onClicked: console.log("Profile Settings?")
+    }
+
+    Button
+    {
         text: "Exit"
-        visible: true
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: 20

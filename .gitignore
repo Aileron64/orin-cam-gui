@@ -2,3 +2,4 @@
 __pycache__
 InstallScripts/*
 !InstallScripts/install.sh
+testVideo.mp4

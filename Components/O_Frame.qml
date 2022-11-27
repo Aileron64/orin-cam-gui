@@ -10,7 +10,7 @@ Frame
 
     background: Rectangle
     {
-        color: "#e6e3e3"
+        color: "#b8bab8"
         radius: 10
     }
 }
