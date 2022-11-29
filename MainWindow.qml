@@ -2,8 +2,6 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.15
 import QtQuick.Controls.Material 2.12
-
-import "Components"
 import "Pages"
 
 ApplicationWindow
@@ -23,7 +21,9 @@ ApplicationWindow
         }
     }
 
-    HomePage { visible: true }
+
+
+    CameraPage { visible: true }
 
     Item
     {
@@ -45,6 +45,24 @@ ApplicationWindow
         }
     }
 
+    Drawer 
+    {
+        id: drawer
+        width: 0.66 * mainWindow.width
+        height: mainWindow.height
+
+        background: Rectangle 
+        {
+            color: "#575859"
+        }
+
+        Label 
+        {
+            text: "Example"
+            anchors.centerIn: parent
+        }
+    }
+
     Button
     {
         text: "Profile/Settings"
@@ -52,7 +70,7 @@ ApplicationWindow
         anchors.right: parent.right
         anchors.margins: 20
 
-        onClicked: console.log("Profile Settings?")
+        onClicked: drawer.visible = true
     }
 
     Button
