@@ -9,9 +9,6 @@ ColumnLayout
     spacing: 20
     width: parent.width * 0.9
     height: parent.height * 0.75
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.verticalCenterOffset: parent.height * -0.03
 
     MediaPlayer 
     {
@@ -34,6 +31,7 @@ ColumnLayout
     {
         id: output
         source: player
-        anchors.fill: parent
+        Layout.fillHeight: true
+        Layout.fillWidth: true
     }
 }

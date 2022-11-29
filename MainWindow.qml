@@ -21,27 +21,50 @@ ApplicationWindow
         }
     }
 
-
-
-    CameraPage { visible: true }
-
-    Item
+    RowLayout
     {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.margins: 10
-
-        ToolTip
+        Frame
         {
-            id: errorDisplay
-            timeout: 3000
-            font.pointSize: 18
+            Layout.fillHeight: true   
+            Layout.preferredWidth: parent.width * 0.1
 
-            background: Rectangle 
+            background : Rectangle 
             {
-                color: "#9c0000"
-                radius: 10
+                color: "#575859"
             }
+
+            ColumnLayout
+            {
+                Button
+                {
+                    text: "Profile/Settings"
+                    onClicked: drawer.visible = true
+                }
+
+                Button
+                {
+                    text: "Data Collection"
+                    onClicked: drawer.visible = true
+                }
+
+                Button
+                {
+                    text: "Validation"
+                    onClicked: drawer.visible = true
+                }
+
+                Button
+                {
+                    text: "Calibration"
+                    onClicked: drawer.visible = true
+                }
+            }
+        }
+
+        CameraPage 
+        { 
+            Layout.fillWidth: true
+            visible: true 
         }
     }
 
@@ -63,21 +86,31 @@ ApplicationWindow
         }
     }
 
-    Button
+    Item
     {
-        text: "Profile/Settings"
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.margins: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.margins: 10
 
-        onClicked: drawer.visible = true
+        ToolTip
+        {
+            id: errorDisplay
+            timeout: 3000
+            font.pointSize: 18
+
+            background: Rectangle 
+            {
+                color: "#9c0000"
+                radius: 10
+            }
+        }
     }
 
     Button
     {
         text: "Exit"
         anchors.bottom: parent.bottom
-        anchors.right: parent.right
+        anchors.left: parent.left
         anchors.margins: 20
 
         onClicked: Qt.quit()

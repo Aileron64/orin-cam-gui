@@ -3,7 +3,7 @@
 Python3 main.py
 ```
 
-# Nano Setup
+# Orin Setup
 
 ###### Dependencies
 ```
