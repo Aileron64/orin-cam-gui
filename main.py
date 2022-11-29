@@ -3,7 +3,7 @@ import sys
 from PySide2.QtWidgets import QApplication
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtQuickControls2 import QQuickStyle
-from PySide2.QtMultimedia import QtMultimedia
+from PySide2.QtMultimedia import QMediaPlayer
 
 from app import App
 
