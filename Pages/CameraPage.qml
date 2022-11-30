@@ -7,8 +7,6 @@ import QtMultimedia 5.15
 ColumnLayout
 {
     spacing: 20
-    width: parent.width * 0.9
-    height: parent.height * 0.75
 
     MediaPlayer 
     {
@@ -29,9 +27,22 @@ ColumnLayout
 
     VideoOutput 
     {
-        id: output
+        id: cameraStream
         source: player
-        Layout.fillHeight: true
+        Layout.preferredHeight: 900
         Layout.fillWidth: true
     }
+
+    Button 
+    {
+        Layout.preferredHeight: 60
+        Layout.preferredWidth: 500
+        text: "Capture"
+        onClicked: Qt.quit()
+    }
+
+    // RowLayout
+    // {
+
+    // }
 }

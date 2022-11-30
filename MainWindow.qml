@@ -73,6 +73,7 @@ ApplicationWindow
         id: drawer
         width: 0.66 * mainWindow.width
         height: mainWindow.height
+        edge: Qt.RightEdge
 
         background: Rectangle 
         {
