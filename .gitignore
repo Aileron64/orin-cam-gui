@@ -14,3 +14,5 @@ InstallScripts/qtmultimedia-everywhere-src-5.15.2.tar.xz
 
 testVideo.mp4
 .vscode/settings.json
+
+ImageCaptures/*

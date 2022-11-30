@@ -23,6 +23,8 @@ ApplicationWindow
 
     RowLayout
     {
+        anchors.fill: parent
+        
         Frame
         {
             Layout.fillHeight: true   
