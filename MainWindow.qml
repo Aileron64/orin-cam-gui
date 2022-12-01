@@ -11,14 +11,13 @@ ApplicationWindow
     height: 1080
     //visibility: "FullScreen"
 
+    // Button Color E8927D
+    // Font Color 2D2926
+
     Rectangle
     {
         anchors.fill: parent
-        gradient: Gradient
-        {
-            GradientStop { position: 1.0; color: "#25224d" }
-            GradientStop { position: 0.0; color: "#403a85" }
-        }
+        color: "#B0E3E2"
     }
 
     RowLayout
@@ -28,15 +27,24 @@ ApplicationWindow
         Frame
         {
             Layout.fillHeight: true   
-            Layout.preferredWidth: parent.width * 0.1
+            Layout.preferredWidth: 300
 
             background : Rectangle 
             {
-                color: "#575859"
+                color: "#2D2926"
             }
 
             ColumnLayout
             {
+                Image
+                {
+                    id: background
+                    sourceSize.width: 225
+                    source: "./Assets/logo.png"
+                }
+
+                Rectangle {height: 40}
+
                 Button
                 {
                     text: "Profile/Settings"
