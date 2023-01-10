@@ -55,6 +55,8 @@ ColumnLayout
                 image.saveToFile(filename); // save happens here
                 listModel.append({"file": filename})
             });
+
+            app.runSeedCounter("./ImageCaptures/", "./Output/")
         }
     }
 
