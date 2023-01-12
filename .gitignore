@@ -18,3 +18,8 @@ testVideo.mp4
 ImageCaptures/*
 
 Seedcounter/*
+
+*.jpg
+*.png
+*.h5
+

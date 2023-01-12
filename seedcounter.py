@@ -12,6 +12,8 @@ from icecream import ic
 import segmentation_models as sm
 import glob
 
+
+
 class SeedCounter:
     _FNAME_TRAY          = "cp_best_mobilenet_from_finetuned.h5"
     _BACKBONE_TRAY       = 'mobilenet'
@@ -27,13 +29,21 @@ class SeedCounter:
     _AREA_MIN_TRAY       = 30000
     _AREA_MAX_TRAY       = 16588800
     
+    
+    
     def __init__(self):
         self.init_tray_model()
+       
+    
+    
+    
     
     def save_image(self,fname,image):
         cv2.imwrite(fname,image)
 
+
     def get_mask_from_image(self,image):
+        
         HGHT_L = np.shape(image)[0]
         WDTH_L = np.shape(image)[1]
         image_copy = image.copy()
@@ -47,8 +57,13 @@ class SeedCounter:
         pr_mask_big_color[pr_mask_big_gray>0] = (0,0,255)
         pr_mask_big_color = np.asarray(pr_mask_big_color, np.uint8)
         return pr_mask_big_gray,pr_mask_big_color
+        
+        
+        
+        
 
     def process_count_via_connectedComponents(self,image):
+        
         output = image.copy()
         gray_original = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
         mask = cv2.inRange(image, self.__class__._IN_RANGE_START, self.__class__._IN_RANGE_END)
@@ -65,16 +80,21 @@ class SeedCounter:
         th3 = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,3,3)
         edges = cv2.Canny(image=th3, threshold1=0, threshold2=255)
         edges = cv2.morphologyEx(edges,cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3)),iterations=1)
+        
         contours, hierarchy = cv2.findContours(gray_original, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         height,width,_ = np.shape(image)
         blank_image = np.zeros((height,width), np.uint8)    
+
         blank_image_cntrs = np.zeros((height,width,3), np.uint8)    
         
+        
         #cv2.imshow("gray",gray_original)
+    
         #cv2.waitKey(0)
         #cv2.destroyAllWindows()     
         
         area_max =0 
+        
         trays_contours = []
         
         for p,cnt in enumerate(contours):
@@ -99,6 +119,9 @@ class SeedCounter:
                                         int(cY)),
                             1, (0, 0, 255), -1)
 
+
+        
+        
         if self.__class__._DEBUG:
             ic(len(trays_contours))
         cnt_seeds = [0 for i in range(len(trays_contours))]
@@ -108,6 +131,7 @@ class SeedCounter:
             area = values[i, cv2.CC_STAT_AREA] 
         
             if (area > self.__class__._AREA_MIN) and (area < self.__class__._AREA_MAX):
+                
                     componentMask = (label_ids == i).astype("uint8") * 255
                     x1 = values[i, cv2.CC_STAT_LEFT]
                     y1 = values[i, cv2.CC_STAT_TOP]
@@ -124,6 +148,8 @@ class SeedCounter:
                             cnt_seeds[i]+=1
                             #if self.__class__._DEBUG:
                             #    ic(cnt_seeds)
+                            
+                            
                             
                     blank_image = cv2.bitwise_or(blank_image, componentMask)
 
@@ -190,3 +216,15 @@ class SeedCounter:
             duration_secs = end - start
             ic(duration_secs)
             self.save_image(fn1,img_with_contours)
+
+    
+            
+        
+
+
+
+
+
+if __name__ == "__main__":
+    counter = SeedCounter()
+    counter.process_folder(folder_in = "new_test_input",folder_out = "new_test_output")

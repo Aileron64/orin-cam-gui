@@ -25,6 +25,22 @@ ColumnLayout
         autoPlay: true
     }
 
+    // MediaPlayer 
+    // {
+    //     id: camera_2
+    //     source: 'gst-pipeline: '
+    //         + 'nvarguscamerasrc sensor-id={ind} num-buffers=22222221 ! '
+    //         + 'video/x-raw(memory:NVMM), '
+    //         + 'format=(string)NV12 ! '
+    //         + 'nvvidconv ! '
+    //         + 'video/x-raw, width=(int)1920, height=(int)1080, format=(string)BGRx ! '
+    //         + 'videoconvert !'
+    //         + 'video/x-raw, format=(string)BGR ! '
+    //         + 'videoconvert ! qtvideosink'
+
+    //     autoPlay: true
+    // }
+
     Frame
     {
         Layout.fillHeight: true
@@ -37,6 +53,18 @@ ColumnLayout
             anchors.fill: parent
         }
     }
+
+    // Frame
+    // {
+    //     Layout.fillHeight: true
+    //     Layout.fillWidth: true
+
+    //     VideoOutput 
+    //     {
+    //         source: camera_2
+    //         anchors.fill: parent
+    //     }
+    // }
 
     Button 
     {
