@@ -1,4 +1,5 @@
 import os
+import sys
 #os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 #os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 #os.environ['CUDA_VISIBLE_DEVICES'] = '0'
@@ -218,13 +219,9 @@ class SeedCounter:
             self.save_image(fn1,img_with_contours)
 
     
-            
-        
-
-
-
-
-
 if __name__ == "__main__":
+    print("SEEDCOUNTER")
+    print(sys.argv[1])
+    print(sys.argv[2])
     counter = SeedCounter()
-    counter.process_folder(folder_in = "new_test_input",folder_out = "new_test_output")
+    counter.process_folder(folder_in = sys.argv[1], folder_out = sys.argv[2])

@@ -75,16 +75,23 @@ ColumnLayout
         onClicked: 
         {
             imgCount++
-            var filename = "./ImageCaptures/" + Qt.formatTime(new Date(), "hh:mm:ss") + ".png"
-            
+            var folder = "./ImageCaptures/" + Qt.formatTime(new Date(), "hh:mm:ss")
+            var input = folder + "/input/"
+            var output = folder + "/output/"
+            var file = input + "0.jpg"
+
+            app.createDirectories(folder)
             cameraStream.grabToImage(function(image) 
             {
-                console.log(filename)
-                image.saveToFile(filename); // save happens here
+                console.log(file)
+                image.saveToFile(file); // save happens here
+
+                console.log("IMAGE SAVED")
+                app.runSeedCounter(input, ouput)
+
+                console.log("DONE SEEDCOUNTER")
                 listModel.append({"file": filename})
             });
-
-            app.runSeedCounter("./ImageCaptures/", "./Output/")
         }
     }
 
