@@ -78,6 +78,8 @@ ColumnLayout
             var folder = "./ImageCaptures/" + Qt.formatTime(new Date(), "hh:mm:ss")
             var input = folder + "/input/"
             var output = folder + "/output/"
+            
+            /* This should be replaced by the interator in a loop when updated for more cameras */
             var number = 0
             var file = input + number + ".png"
 
@@ -115,12 +117,11 @@ ColumnLayout
         {
             Image
             {
-                source: "file:" + file
+                source: file
+                //source: "file:" + file
                 sourceSize.width: 200
                 sourceSize.height: 112
             }
         }
     }
-
-
 }

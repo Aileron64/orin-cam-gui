@@ -11,8 +11,8 @@ ApplicationWindow
     //visibility: "FullScreen"
 
     property var loading: false
-    property var selectedOverlay
-    property var selectedCounted
+    property var selectedOverlay//: "./ImageCaptures/13:38:26/output/0_overlay.jpg"
+    property var selectedCounted//: "./ImageCaptures/13:38:26/output/0_seeds_counted.jpg"
 
     Rectangle
     {
@@ -130,26 +130,12 @@ ApplicationWindow
     Rectangle
     {
         id: popupBackground
-        visible: true
+        visible: false
         x: -10000
         y: -10000
         width: 30000
         height: 30000
         color: "#cccccccc"
-
-        Image
-        {
-            visible: !loading
-            source: selectedOverlay
-            sourceSize.width: 200
-        }
-
-        Image
-        {
-            visible: !loading
-            source: selectedCounted
-            sourceSize.width: 200
-        }
 
         MouseArea
         {
@@ -159,6 +145,24 @@ ApplicationWindow
                 if (!loading) 
                     popupBackground.visible = false
             }
+        }
+    }
+
+    ColumnLayout 
+    {
+        visible: popupBackground.visible && !loading
+        anchors.centerIn: parent
+
+        Image
+        {   
+            source: selectedOverlay
+            sourceSize.width: 1400
+        }
+
+        Image
+        {
+            source: selectedCounted
+            sourceSize.width: 1400
         }
     }
 }
