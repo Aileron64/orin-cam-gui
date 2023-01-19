@@ -10,6 +10,10 @@ ApplicationWindow
     height: 1080
     //visibility: "FullScreen"
 
+    property var loading: false
+    property var selectedOverlay
+    property var selectedCounted
+
     Rectangle
     {
         anchors.fill: parent
@@ -121,5 +125,40 @@ ApplicationWindow
         anchors.margins: 20
 
         onClicked: Qt.quit()
+    }
+
+    Rectangle
+    {
+        id: popupBackground
+        visible: true
+        x: -10000
+        y: -10000
+        width: 30000
+        height: 30000
+        color: "#cccccccc"
+
+        Image
+        {
+            visible: !loading
+            source: selectedOverlay
+            sourceSize.width: 200
+        }
+
+        Image
+        {
+            visible: !loading
+            source: selectedCounted
+            sourceSize.width: 200
+        }
+
+        MouseArea
+        {
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {
+                if (!loading) 
+                    popupBackground.visible = false
+            }
+        }
     }
 }

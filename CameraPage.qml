@@ -78,19 +78,25 @@ ColumnLayout
             var folder = "./ImageCaptures/" + Qt.formatTime(new Date(), "hh:mm:ss")
             var input = folder + "/input/"
             var output = folder + "/output/"
-            var file = input + "0.jpg"
+            var number = 0
+            var file = input + number + ".png"
 
+            loading = true
+            popupBackground.visible = true
             app.createDirectories(folder)
             cameraStream.grabToImage(function(image) 
             {
                 console.log(file)
                 image.saveToFile(file); // save happens here
-
                 console.log("IMAGE SAVED")
-                app.runSeedCounter(input, ouput)
-
+            
+                app.runSeedCounter(input, output)
                 console.log("DONE SEEDCOUNTER")
-                listModel.append({"file": filename})
+                loading = false
+
+                selectedOverlay = output + number + "_overlay.jpg"
+                selectedCounted = output + number + "_seeds_counted.jpg"
+                listModel.append({"file": filename, "overlay": selectedOverlay, "counted": selectedCounted})
             });
         }
     }
@@ -115,4 +121,6 @@ ColumnLayout
             }
         }
     }
+
+
 }
