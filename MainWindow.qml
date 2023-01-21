@@ -68,6 +68,12 @@ ApplicationWindow
                     text: "Calibration"
                     onClicked: drawer.visible = true
                 }
+
+                Button
+                {
+                    text: "Test"
+                    onClicked: drawer.visible = true
+                }
             }
         }
 

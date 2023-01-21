@@ -98,7 +98,7 @@ ColumnLayout
 
                 selectedOverlay = output + number + "_overlay.jpg"
                 selectedCounted = output + number + "_seeds_counted.jpg"
-                listModel.append({"file": filename, "overlay": selectedOverlay, "counted": selectedCounted})
+                outputList.append({"file": file, "overlay": selectedOverlay, "counted": selectedCounted})
             });
         }
     }
@@ -107,20 +107,30 @@ ColumnLayout
     {   
         clip: true
         Layout.fillWidth: true
-        Layout.preferredHeight: 120
+        Layout.preferredHeight: 160
         orientation: ListView.Horizontal
         spacing: 20
 
-        model: ListModel {id: listModel}
+        model: ListModel {id: outputList}
 
         delegate: ColumnLayout
         {
             Image
             {
                 source: file
-                //source: "file:" + file
                 sourceSize.width: 200
                 sourceSize.height: 112
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        selectedOverlay = overlay
+                        selectedCounted = counted
+                        popupBackground.visible = true
+                    }
+                }
             }
         }
     }
